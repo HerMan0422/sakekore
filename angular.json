@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sakekore-app"
+    }
+  },
+  "defaultProject": "sakekore-app",
+  "cli": {
+    "analytics": false
+  }
 }

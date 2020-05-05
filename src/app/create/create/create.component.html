@@ -1,0 +1,26 @@
+<h1>お酒を新規登録する</h1>
+<div class="container">
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="swiper">
+    <swiper [config]="config" [(index)]="selectedOsakeId">
+      <div *ngFor="let osakeId of osakeIds">
+        <img src="/assets/images/Drink-{{osakeId}}.png">
+      </div>
+    </swiper>
+    <div class="pager">
+
+    </div>
+  </div>
+
+
+  <mat-form-field class="name-input" appearance="outline">
+    <input formControlName="name" type="text" placeholder="お酒の名前" matInput>
+  </mat-form-field>
+<div class="form-footer">
+  <button [disabled]="form.invalid" mat-raised-button color=primary>
+    　登録
+  </button>
+</div>
+</form>
+</div>
