@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "sakekore-f14e6"
+  },
+  "targets": {
+    "sakekore-f14e6": {
+      "hosting": {
+        "sakekore-app": [
+          "sakekore-f14e6"
+        ]
+      }
+    }
   }
 }
