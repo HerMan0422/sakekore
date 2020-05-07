@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { OsakeService } from 'src/app/services/osake.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create',
@@ -22,7 +24,7 @@ export class CreateComponent implements OnInit {
     slidesPerView: 3
   };
 
-  selectedOsakeId: 0;
+  selectedOsakeId: 1;
 
   form = this.fb.group({
 
@@ -34,14 +36,22 @@ export class CreateComponent implements OnInit {
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private osakeService: OsakeService,
+    private authServie: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
   submit(){
-    console.log(this.form.value);
     console.log(this.selectedOsakeId);
+    this.osakeService.createOsake({
+      osakeId: this.selectedOsakeId,
+      name: this.form.value.name,
+      level: 1,
+      drinked: 1,
+      userId: this.authServie.uid,
+    });
   }
 }

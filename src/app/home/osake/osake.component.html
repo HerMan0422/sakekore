@@ -1,10 +1,11 @@
 <div class="osake">
   <figure class="osake__url">
-    <img [src]="osake.URL">
+    <img src='assets/images/Drink-{{osake.osakeId + 1}}.png'>
   </figure>
   <div class="osake__body">
     <p class="osake__name">{{osake.name}} <small>Lv.{{osake.level}}</small></p>
     <mat-progress-bar class="drinked-bar" mode="determinate" [value]="getDrinkedPercentage()"></mat-progress-bar>
+
     <p class="osake__drinked">{{osake.drinked}} / 10</p>
   </div>
 </div>

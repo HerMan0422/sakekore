@@ -1,6 +1,7 @@
 export interface Osake {
-  URL: string;
+  osakeId: number;
   name: string;
   level: number;
   drinked: number;
+  userId: string;
 }

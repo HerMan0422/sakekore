@@ -13,11 +13,13 @@ import { environment } from '../environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ngModuleJitUrl } from '@angular/compiler';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

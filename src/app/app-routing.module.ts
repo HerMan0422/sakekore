@@ -4,11 +4,15 @@ import { WelcomeModule } from './welcome/welcome.module';
 import { CreateModule} from './create/create.module';
 import { HomeModule} from './home/home.module';
 import { AuthGuard } from './guards/auth.guard';
+import { GuestGuard } from './guards/guest.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [{
   path: 'welcome',
-  loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomeModule)
+  loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomeModule),
+  canLoad: [GuestGuard],
+  canActivate: [GuestGuard]
 },
 {
   path: 'create',
@@ -22,6 +26,10 @@ const routes: Routes = [{
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   canLoad: [AuthGuard],
   canActivate: [AuthGuard]
+},
+{
+  path: '**',
+  component: NotFoundComponent
 }
 ];
 
